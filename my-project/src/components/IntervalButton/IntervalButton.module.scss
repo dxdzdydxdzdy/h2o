@@ -1,0 +1,13 @@
+@use "../../styles/utils/variables" as *;
+
+.intervals_btn {
+  color: $inactive-color;
+  line-height: 24px;
+  letter-spacing: $spacing-lg;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.intervals_btn.active {
+  color: $text-color;
+}

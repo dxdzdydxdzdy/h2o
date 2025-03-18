@@ -1,0 +1,42 @@
+@use "../../styles/utils/variables" as *;
+
+.card_item {
+  height: 168px;
+  background-color: $main-white;
+  border-radius: $bradius-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 53px;
+}
+
+.card_percent {
+  margin-bottom: 13px;
+  padding: 7px 38px;
+  border-radius: $bradius-md;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: $spacing-sm;
+  font-weight: 600;
+
+  i {
+    margin-right: 6px;
+  }
+}
+
+.card_summ {
+  font-size: 28px;
+  line-height: 22px;
+  letter-spacing: $spacing-sm;
+  font-weight: 600;
+  color: $text-color;
+  margin-bottom: 13px;
+}
+
+.card_label {
+  font-size: 16px;
+  color: $text-color;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: $spacing-sm;
+}

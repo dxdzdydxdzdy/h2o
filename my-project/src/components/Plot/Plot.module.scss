@@ -1,0 +1,59 @@
+@use "../../styles/utils/variables" as *;
+
+.plot_tooltip {
+  background: $main-white;
+  padding: 7px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-size: 14px;
+}
+
+.tooltip_p {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: $spacing-sm;
+  color: $text-color;
+}
+
+.legend_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 19px;
+}
+
+.legend_circle {
+  display: flex;
+
+  align-items: center;
+}
+.legend_color {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+}
+.legend_item {
+  display: flex;
+  flex-direction: row;
+  column-gap: 9px;
+}
+.legend_item__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend_text {
+  font-size: 14px;
+  font-weight: 600;
+  color: $subtext-color;
+  line-height: 18px;
+  letter-spacing: $spacing-sm;
+}
+
+.legend_value {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-color;
+}

@@ -1,0 +1,48 @@
+@use "../../styles/utils/variables" as *;
+
+.problem_zone {
+  padding: 17px 32px;
+}
+
+.problem_header {
+  letter-spacing: -0.56px;
+  line-height: 44px;
+  font-size: 20px;
+}
+
+.problem_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.zone_item {
+  display: flex;
+  flex-direction: row;
+}
+
+.zone_circle {
+  margin-right: 16px;
+  padding-top: 5px;
+}
+
+.zone_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.zone_item__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: $spacing-sm;
+  list-style: none;
+  color: $subtext-color;
+}
+
+.zone_item__value {
+  font-size: 18px;
+  line-height: 120%;
+  font-weight: 700;
+  color: $text-color;
+}
