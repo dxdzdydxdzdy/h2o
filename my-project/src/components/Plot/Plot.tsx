@@ -15,6 +15,12 @@ import {
 
 moment.locale("ru");
 
+interface CustomDotProps {
+  cx?: number;
+  cy?: number;
+  stroke?: string;
+}
+
 interface PlotProps {
   chartData: {
     B2B: {
@@ -86,17 +92,8 @@ const Plot: React.FC<PlotProps> = ({
     return null;
   };
 
-  const CustomDot = ({
-    cx,
-    cy,
-    stroke,
-  }: {
-    cx?: number;
-    cy?: number;
-    stroke?: string;
-  }) => {
-    if (cx === undefined || cy === undefined || !stroke || hoveredLine === null)
-      return null;
+  const CustomDot: React.FC<CustomDotProps> = ({ cx, cy, stroke }) => {
+    if (cx === undefined || cy === undefined || !stroke) return null;
 
     return (
       <>
@@ -111,6 +108,19 @@ const Plot: React.FC<PlotProps> = ({
         <circle cx={cx} cy={cy} r={4.5} fill="#FFFFFF" />
       </>
     );
+  };
+
+  const ActiveDotWrapper = ({
+    cx,
+    cy,
+    stroke,
+  }: {
+    cx?: number;
+    cy?: number;
+    stroke?: string;
+  }) => {
+    if (cx === undefined || cy === undefined || !stroke) return null;
+    return <CustomDot cx={cx} cy={cy} stroke={stroke} />;
   };
 
   const CustomLegend: React.FC = () => {
@@ -201,9 +211,10 @@ const Plot: React.FC<PlotProps> = ({
               }
               strokeWidth={3}
               dot={false}
-              activeDot={({ cx, cy }) =>
-                hoveredLine === key ? (
-                  <CustomDot
+              activeDot={(props: unknown) => {
+                const { cx, cy } = props as { cx?: number; cy?: number };
+                return hoveredLine === key ? (
+                  <ActiveDotWrapper
                     cx={cx}
                     cy={cy}
                     stroke={
@@ -212,8 +223,10 @@ const Plot: React.FC<PlotProps> = ({
                       ]
                     }
                   />
-                ) : null
-              }
+                ) : (
+                  <></>
+                );
+              }}
               onMouseEnter={() => setHoveredLine(key)}
               onMouseLeave={() => setHoveredLine(null)}
               name={
